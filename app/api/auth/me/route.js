@@ -10,7 +10,6 @@ import { readUsers } from "../../../../lib/fileDb";
 
 export async function GET(req) {
   try {
-    // Google Login User
     const session =
       await getServerSession(
         authOptions
@@ -32,7 +31,6 @@ export async function GET(req) {
       });
     }
 
-    // JWT Login User
     const token =
       req.cookies.get("token")
         ?.value;
