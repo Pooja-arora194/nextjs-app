@@ -82,7 +82,6 @@ export const authOptions = {
       token,
       account,
     }) {
-      // First Login
       if (account) {
         return {
           ...token,
@@ -97,7 +96,6 @@ export const authOptions = {
         };
       }
 
-      // Token valid
       if (
         Date.now() <
         token.accessTokenExpires
@@ -105,7 +103,6 @@ export const authOptions = {
         return token;
       }
 
-      // Token expired
       return refreshAccessToken(
         token
       );

@@ -6,7 +6,6 @@ export async function POST() {
       success: true,
     });
 
-  // Custom JWT Cookie
   response.cookies.set(
     "token",
     "",

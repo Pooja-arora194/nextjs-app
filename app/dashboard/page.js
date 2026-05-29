@@ -29,7 +29,6 @@ const router = useRouter();
   const fetchUser =
     async () => {
       try {
-        // Google Login User
         if (
           session?.user
         ) {
@@ -46,7 +45,6 @@ const router = useRouter();
           return;
         }
 
-        // Email/Password User
         const res =
           await axios.get(
             "/api/auth/me",

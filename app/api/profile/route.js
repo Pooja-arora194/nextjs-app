@@ -18,7 +18,6 @@ export async function GET(req) {
         authOptions
       );
 
-    // Google User
     if (session?.user) {
       return NextResponse.json({
         success: true,
@@ -35,7 +34,6 @@ export async function GET(req) {
       });
     }
 
-    // JWT User
     const token =
       req.cookies.get("token")
         ?.value;
@@ -106,7 +104,6 @@ export async function PUT(req) {
     const session =
       await getServerSession(authOptions);
 
-    // Google users ko update nahi karne dena
     if (session?.user) {
       return NextResponse.json(
         {
@@ -157,7 +154,6 @@ export async function PUT(req) {
       );
     }
 
-    // Email duplicate check
     const emailExists =
       users.find(
         (u) =>

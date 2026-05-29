@@ -17,7 +17,6 @@ export async function GET(req) {
         "__Secure-next-auth.session-token"
       );
 
-    // If user logged in by Google
     if (googleToken) {
       const users =
         readUsers();
@@ -45,7 +44,6 @@ export async function GET(req) {
       });
     }
 
-    // Normal JWT Login
     if (!token) {
       return NextResponse.json(
         {
