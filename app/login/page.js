@@ -19,10 +19,39 @@ export default function Login() {
       email: "",
       password: "",
     });
+const validateForm = () => {
+  if (!formData.email.trim()) {
+    toast.error("Email is required");
+    return false;
+  }
 
+  const emailRegex =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(formData.email)) {
+    toast.error(
+      "Please enter a valid email"
+    );
+    return false;
+  }
+
+  if (!formData.password) {
+    toast.error("Password is required");
+    return false;
+  }
+
+  if (formData.password.length < 6) {
+    toast.error(
+      "Password must be at least 6 characters"
+    );
+    return false;
+  }
+
+  return true;
+};
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+ if (!validateForm()) return;
     try {
       setLoading(true);
 
